@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Usuarios } from 'src/app/models/users.models';
 import { UsersServices } from 'src/app/services/users.services';
 
@@ -14,7 +15,7 @@ export class PerfilComponent implements OnInit {
   public rol: any;
 
 
-  constructor(private _usuarioService: UsersServices) {
+  constructor(private _usuarioService: UsersServices,private _router: Router) {
     this.usuarioModel = new Usuarios("","","","","","","","", [{type: ""}]);
     this.UsuarioModel2 = new Usuarios("","","","","","","","", [{type: ""}]);
     this.rol = this._usuarioService.getRol();
@@ -40,6 +41,17 @@ export class PerfilComponent implements OnInit {
     this._usuarioService.GerUsersId().subscribe(
       response => {
         this.UsuarioModel2 = response
+      }, error => {
+        console.log(<any>error)
+      }
+    )
+  }
+
+  DeteleUsuario(){
+    this._usuarioService.DeleteMyUsuarId().subscribe(
+      repsonse => {
+        console.log(repsonse)
+        this._router.navigate(['/login'])
       }, error => {
         console.log(<any>error)
       }

@@ -6,11 +6,11 @@
   <br>
   <div class="container">
     <div class="row">
-      <div class="col-4">
+      <div class="col-4" *ngFor="let ligas of LigasModel">
         <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
+          <img src="{{ligas.image}}" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
+            <h5 class="card-title">{{ligas.name}}</h5>
             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
               <button type="button" class="btn btn-danger">Eliminar</button>
               <button type="button" class="btn btn-warning">Editar</button>
@@ -18,10 +18,6 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="col">
-        <br>
-        <img src="data:image/png;base64,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" data-bs-toggle="modal" data-bs-target="#exampleModal"/>
       </div>
     </div>
   </div>

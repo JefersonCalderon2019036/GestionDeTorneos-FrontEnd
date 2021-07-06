@@ -39,7 +39,12 @@ import { GLOBALSERVICIOS } from './global.services';
 
     //funcion para eliminar un usuario por id como administrado
     DeleteUsuarioId(): Observable<any>{
-      return this._http.delete(this.url +"deleteUserAdmin/"+ this.getId() + "/"+ this.getSoloUnUsuario,  {headers: this.headersToken})
+      return this._http.delete(this.url +"deleteUserAdmin/"+ this.getId() + "/"+ this.getSoloUnUsuario(),  {headers: this.headersToken})
+    }
+
+    //funcion para eliminar el propio usuarios
+    DeleteMyUsuarId(): Observable<any>{
+      return this._http.delete(this.url + "deleteUser/" + this.getId(), {headers: this.headersToken})
     }
 
     //funcion para obtener un usuario por el id
@@ -56,6 +61,12 @@ import { GLOBALSERVICIOS } from './global.services';
     UpdateUserId(usuario: Usuarios): Observable<any>{
       let params = JSON.stringify(usuario)
       return this._http.put(this.url +"updateUserAdmin/"+this.getId()+"/"+this.getSoloUnUsuario(), params, {headers: this.headersToken})
+    }
+
+    //funcion para edtiar mi propio usuarios
+    UpdateMyUserId(usuario: Usuarios): Observable<any>{
+      let params = JSON.stringify(usuario)
+      return this._http.put(this.url + "updateUser/" +this.getId(), params, {headers: this.headersToken})
     }
 
     //funcion para obtener el token desde el localStorage

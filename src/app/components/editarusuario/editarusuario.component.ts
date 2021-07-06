@@ -52,6 +52,44 @@ export class EditarusuarioComponent implements OnInit {
   }
 
   UpdateUserId(){
+    if("ROLE_ADMIN" == this.rol){
+      this._usuarioService.UpdateUserId(this.usuarioModel).subscribe(
+        Response => {
+          console.log(Response)
+          this.obtenerusuario();
+          this.verificacion();
+        }, error => {
+          console.log(<any>error)
+        }
+      )
+    }else{
+      this._usuarioService.UpdateMyUserId(this.usuarioModel).subscribe(
+        response => {
+          console.log(response)
+          this.obtenerusuario();
+          this.verificacion();
+        }, error => {
+          console.log(<any>error)
+        }
+      )
+    }
+  }
+
+  UpdateRolesAdmin(){
+    this.usuarioModel.role = "ROLE_ADMIN"
+    this._usuarioService.UpdateUserId(this.usuarioModel).subscribe(
+      Response => {
+        console.log(Response)
+        this.obtenerusuario();
+        this.verificacion();
+      }, error => {
+        console.log(<any>error)
+      }
+    )
+  }
+
+  UpdateRolesUser(){
+    this.usuarioModel.role = "ROLE_USER"
     this._usuarioService.UpdateUserId(this.usuarioModel).subscribe(
       Response => {
         console.log(Response)

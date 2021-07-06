@@ -7,12 +7,19 @@ import { GLOBALSERVICIOS } from './global.services';
   providedIn: 'root'
 })
 export class LigasServices {
-  url: any;
-  token: string | null | undefined;
-  identidad: string | null | undefined;
+  public url: String;
+  public token: any;
+  public Encabezado = new HttpHeaders().set('Content-Type','application/json');
+  public headersToken = this.Encabezado.set('Authorization', this.getToken());
+  public identidad: any;
 
   constructor(public _http: HttpClient) {
     this.url = GLOBALSERVICIOS.url;
+  }
+
+  // funcion para obtener el todas las ligas
+  getLiga(): Observable<any>{
+    return this._http.get(this.url + "getLiga/"+this.getId(), {headers: this.headersToken})
   }
 
   //funcion para obtener el token desde el localStorage
