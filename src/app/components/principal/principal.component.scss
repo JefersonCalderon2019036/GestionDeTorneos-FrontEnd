@@ -1,0 +1,29 @@
+body {
+  background-image: url(http://fc08.deviantart.net/fs19/f/2007/283/3/d/Allianz_Arena_by_EmaratisTyle.jpg);
+  background-size: cover;
+}
+
+.primera-linea{
+  display: flex;
+}
+
+.torneos{
+  background-color: white;
+  width: 20%;
+  margin-left: 20%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.torneos:hover{
+  background-color: #191919;
+  color:white;
+}
+
+.img-copa{
+  width: 100%;
+}
+
+.texto-cards{
+  text-align: center;
+}

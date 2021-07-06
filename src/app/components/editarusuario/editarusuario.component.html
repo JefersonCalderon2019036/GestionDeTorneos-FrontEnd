@@ -1,0 +1,63 @@
+<body>
+<app-navbar></app-navbar>
+<br>
+<div class="contenedor-general" style= " display: flex;">
+  <div class="datos-existentes" style="width:40%; background-color: white; margin-left: 5%">
+
+    <form style="margin-left:5%; margin-right: 5%;">
+      <h1 style="text-align: center;">Datos actuales</h1>
+      <img src="{{UsuarioModel2.image}}"  class="img-thumbnail">
+      <div class="mb-3">
+        <label for="nombreinput" class="form-label">Nombre</label>
+        <input type="email" class="form-control" id="nombreinput" aria-describedby="emailHelp" value={{UsuarioModel2.name}} disabled>
+      </div>
+      <div class="mb-3">
+        <label for="nombreinput" class="form-label">Nombre del usuario</label>
+        <input type="email" class="form-control" id="nombreinput" aria-describedby="emailHelp" value={{UsuarioModel2.username}} disabled>
+      </div>
+      <div class="mb-3">
+        <label for="nombreinput" class="form-label">Correo</label>
+        <input type="email" class="form-control" id="nombreinput" aria-describedby="emailHelp" value={{UsuarioModel2.email}} disabled>
+      </div>
+      <div class="mb-3">
+        <label for="nombreinput" class="form-label">Rol</label>
+        <input type="email" class="form-control" id="nombreinput" aria-describedby="emailHelp" value={{UsuarioModel2.role}} disabled>
+      </div>
+      <div class="mb-3">
+        <label for="nombreinput" class="form-label">Imagen</label>
+        <input type="email" class="form-control" id="nombreinput" aria-describedby="emailHelp" value={{UsuarioModel2.image}} disabled>
+      </div>
+    </form>
+    <br>
+  </div>
+  <div class="datos-existentes" style="width:40%; background-color: white; margin-left: 10%;">
+    <br>
+    <form style="margin-left:5%; margin-right: 5%;">
+      <h1 style="text-align: center;">Editar datos</h1>
+      <div class="mb-3">
+        <label for="nombreinput" class="form-label">Nombre</label>
+        <input type="email" class="form-control" id="nombreinput" name="name" #name="ngModel" [(ngModel)]="usuarioModel.name">
+      </div>
+      <div class="mb-3">
+        <label for="nombreinput" class="form-label">Nombre del usuario</label>
+        <input type="email" class="form-control" id="nombreinput" name="username" #username="ngModel" [(ngModel)]="usuarioModel.username">
+      </div>
+      <div class="mb-3">
+        <label for="nombreinput" class="form-label">Correo</label>
+        <input type="email" class="form-control" id="nombreinput" name="email" #email="ngModel" [(ngModel)]="usuarioModel.email">
+      </div>
+      <div class="mb-3">
+        <label for="nombreinput" class="form-label">Imagen</label>
+        <input type="email" class="form-control" id="nombreinput" name="image" #image="ngModel" [(ngModel)]="usuarioModel.image">
+      </div>
+      <div class="d-grid gap-2">
+        <button class="btn btn-success" *ngIf="verificaciondelrol" type="button">ROLE_ADMIN</button>
+        <button class="btn btn-success" *ngIf="verificaciondelrol" type="button">ROLE_USER</button>
+        <button class="btn btn-success" type="button" (click)="UpdateUserId()">Guardar</button>
+      </div>
+    </form>
+    <br>
+  </div>
+</div>
+<br>
+</body>

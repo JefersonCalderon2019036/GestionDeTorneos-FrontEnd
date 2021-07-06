@@ -1,0 +1,27 @@
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-6"style="margin-left: 25%; margin-top: 26.5%; margin-bottom: 26.5%; background-color:#191919; border-radius: 5%">
+        <form>
+          <br>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label" style="color: white">Ingrese el nombre de usuario</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" name="username" #username="ngModel" [(ngModel)]="usuarioModel.username">
+            <div id="emailHelp" class="form-text" style="color: white">Nunca compartiremos su nombre de usuario electrónico con nadie más.</div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label" style="color: white">Ingresa tu contraseña</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="password" #password="ngModel" [(ngModel)]="usuarioModel.password">
+          </div>
+          <br>
+          <div class="btn-group" role="group" aria-label="Basic mixed styles example" style="margin-left: 30%;">
+            <button type="button" class="btn btn-success"(click)="getToken()">Ingresar</button>
+            |
+            <button type="button" class="btn btn-outline-primary" (click)="gettoregister()" style="background-color: white">Registrar</button>
+          </div>
+        </form>
+        <br>
+      </div>
+    </div>
+  </div>
+</body>

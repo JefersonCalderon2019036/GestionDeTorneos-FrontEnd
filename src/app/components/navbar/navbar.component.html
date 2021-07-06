@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#" routerLink="/perfil" routerLinkActive="active" style="text-transform:capitalize; color: white; margin-right:5%"><img src="{{imagenp}}" alt="" style="width: 70px; border-radius: 10%; margin-right: 10%;" >{{nombres}}</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="/suspenders" routerLinkActive="active">Ligas  |</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="/suspenders" routerLinkActive="active">Estadisticas  |</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="/suspenders" routerLinkActive="active">Historial  |</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#" routerLink="/users" routerLinkActive="active" *ngIf="verificaciondelrol">Usuarios  |</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit" style="background-color: white;"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABX0lEQVRIS9WV4TEEQRCFv4uAEIgAESADIiADRIIIkAERkAEZHBkQAfWpbjXW7Mxe1d4P/eeqdnree/26p2/BmmOxZnxaBFvAGXAA7IaQF+AJuAZep4gbI7gK8BaGORc9khqBKnfi4h0gkN8MKzkHToqK9lokQ4JU/hHWJPAQQyKt2gi7JK1GSaDny8hSleCbwGWQeSSotrxHNc+Rvz3Wk5Ig1dvAVHQK3AykCS6gv7dhV3nnV3pJkN6n+kw8Knog4D7wAPhdq6zCu9VelASfgdgbXW10RK3CaN5blaDWyMkEYxa1pjAtegMckj/Ra3LvHa3U5NqYTlFvzqQxNTFH1RE8LKan9tAe452MjqiXeqtCCwQoV4UL0PeR4ZliFNXsQXk4ZdlJ7KZ1b42S9GbeF50gCnBa7sNK34KrxPUxSjLHH06TZA4CKytJjqPKb8vnIkgS7dTCn5iToPpm/j/BFw/XUxlWaiIXAAAAAElFTkSuQmCC"/></button>
+      </form>
+    </div>
+  </div>
+</nav>

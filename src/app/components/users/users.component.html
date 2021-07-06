@@ -1,0 +1,81 @@
+<body>
+  <app-navbar></app-navbar>
+  <br>
+  <div class="container" style="margin-bottom: 15%;">
+    <div class="row">
+      <div class="col-14">
+        <h1 style="color:white; text-align: center; margin-top: 10%; text-decoration: underline red;">Usuarios</h1>
+        <br>
+        <table class="table" style= "background-color: white; color: black">
+          <thead>
+            <tr>
+              <th scope="col">Imagen</th>
+              <th scope="col">Nombre de usuario</th>
+              <th scope="col">Correo</th>
+              <th scope="col">Rol</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let usua of usuariostable">
+              <th style="color: black;"><img src="{{usua.image}}" alt="" style="width: 50px;"></th>
+              <td style="color: black;">{{usua.username}}</td>
+              <td style="color: black;">{{usua.email}}</td>
+              <td style="color: black;">{{usua.role}}</td>
+              <td>
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                  <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                  <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#ModalVerMas" (click) ="GetUsuarioId(usua._id)">Ver más</button>
+
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                <button type="button" class="btn btn-outline-primary" routerLink="/editarperfil" routerLinkActive="active" (click) ="GetUsuarioId(usua._id)">Editar</button>
+
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                <button class="btn btn-outline-primary" (click)="DeleteUsuarioId(usua._id)">Eliminar</button>
+              </div>
+            </td>
+            </tr>
+          </tbody>
+        </table>
+        <br>
+      </div>
+    </div>
+  </div>
+<br>
+</body>
+
+<!-- Ver Mas -->
+<div class="modal fade" id="ModalVerMas" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ver más</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src={{UsuarioModel2.image}} alt="" style="width: 80%; margin-left: 10%; overflow: hidden">
+        <div>
+          <label for="" style="color: black;">Nombre</label>
+          <input class="form-control" type="text" value={{UsuarioModel2.name}} aria-label="Disabled input example" disabled readonly>
+        </div>
+        <br>
+        <div>
+          <label for="" style="color: black;">Nombre del usuario</label>
+          <input class="form-control" type="text" value={{UsuarioModel2.username}} aria-label="Disabled input example" disabled readonly>
+        </div>
+        <br>
+        <div>
+          <label for="" style="color: black;">correo</label>
+          <input class="form-control" type="text" value={{UsuarioModel2.email}} aria-label="Disabled input example" disabled readonly>
+        </div>
+        <br>
+        <div>
+          <label for="" style="color: black;">Rol</label>
+          <input class="form-control" type="text" value={{UsuarioModel2.role}} aria-label="Disabled input example" disabled readonly>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>

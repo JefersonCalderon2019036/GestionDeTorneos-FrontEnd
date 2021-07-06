@@ -1,0 +1,33 @@
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-6" style="margin: auto; margin-top: 16%; margin-bottom: 16%; background-color:#191919; border-radius: 5%">
+        <form>
+          <br>
+          <div class="mb-3">
+            <label for="nameimput" class="form-label" style="color: white">Nombre</label>
+            <input type="email" class="form-control" id="nameimput" aria-describedby="emailHelp" name="name" #name="ngModel" [(ngModel)]="usuarioModel.name">
+            <div id="emailHelp" class="form-text" style="color: white"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABOUlEQVRIS72VYVUDMRCEv1EADgAHSCgKAAfgAAdcHdQBSKgDwAESWgegYHlzcH0hzXG5u5b9177LfJvZZCKOXDqyPjtARCyAJ+B8JnQD3Et6tU4K+ABOZop3yzeSLnJAHEi8lZHUNp/uoA+wBB4Ku/sEVsBjqbFawFJSExGXgD3tLLT4QtJ7RDQlSC3Ac7n6EeogbrgT938vwGm+i1qA1+UQ++vOe8XHzuAXxD+GxKcAdp4ngHQme3MeY1E6UNuSWtQLqQXk4h6oKx/83gWtBawl3RY8Twe/Bq7nnCILOKfyo2iILbqZc9Emp0fJokOG3VZSm8p5XD8DZ5Pb/l64Be724rokGhGlAHT4rSR5x4P154uWAd6cqo6JQdXkgxqA70IjydE8uoYAPqLu2s/gpPq/R39SexWLvgAIua8Z0t8rsQAAAABJRU5ErkJggg=="/> Este campo es necesario rellenarlo.</div>
+          </div>
+          <div class="mb-3">
+            <label for="usernameinput" class="form-label" style="color: white">Nombre de usuario</label>
+            <input type="email" class="form-control" id="usernameinput" aria-describedby="emailHelp"  name="username" #username="ngModel" [(ngModel)]="usuarioModel.username">
+            <div id="emailHelp" class="form-text" style="color: white"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABOUlEQVRIS72VYVUDMRCEv1EADgAHSCgKAAfgAAdcHdQBSKgDwAESWgegYHlzcH0hzXG5u5b9177LfJvZZCKOXDqyPjtARCyAJ+B8JnQD3Et6tU4K+ABOZop3yzeSLnJAHEi8lZHUNp/uoA+wBB4Ku/sEVsBjqbFawFJSExGXgD3tLLT4QtJ7RDQlSC3Ac7n6EeogbrgT938vwGm+i1qA1+UQ++vOe8XHzuAXxD+GxKcAdp4ngHQme3MeY1E6UNuSWtQLqQXk4h6oKx/83gWtBawl3RY8Twe/Bq7nnCILOKfyo2iILbqZc9Emp0fJokOG3VZSm8p5XD8DZ5Pb/l64Be724rokGhGlAHT4rSR5x4P154uWAd6cqo6JQdXkgxqA70IjydE8uoYAPqLu2s/gpPq/R39SexWLvgAIua8Z0t8rsQAAAABJRU5ErkJggg=="/> Este campo es necesario rellenarlo.</div>
+          </div>
+          <div class="mb-3">
+            <label for="usernameinput" class="form-label" style="color: white">Correo</label>
+            <input type="email" class="form-control" id="usernameinput" aria-describedby="emailHelp"  name="email" #email="ngModel" [(ngModel)]="usuarioModel.email">
+            <div id="emailHelp" class="form-text" style="color: white"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABOUlEQVRIS72VYVUDMRCEv1EADgAHSCgKAAfgAAdcHdQBSKgDwAESWgegYHlzcH0hzXG5u5b9177LfJvZZCKOXDqyPjtARCyAJ+B8JnQD3Et6tU4K+ABOZop3yzeSLnJAHEi8lZHUNp/uoA+wBB4Ku/sEVsBjqbFawFJSExGXgD3tLLT4QtJ7RDQlSC3Ac7n6EeogbrgT938vwGm+i1qA1+UQ++vOe8XHzuAXxD+GxKcAdp4ngHQme3MeY1E6UNuSWtQLqQXk4h6oKx/83gWtBawl3RY8Twe/Bq7nnCILOKfyo2iILbqZc9Emp0fJokOG3VZSm8p5XD8DZ5Pb/l64Be724rokGhGlAHT4rSR5x4P154uWAd6cqo6JQdXkgxqA70IjydE8uoYAPqLu2s/gpPq/R39SexWLvgAIua8Z0t8rsQAAAABJRU5ErkJggg=="/> Este campo es necesario rellenarlo.</div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label" style="color: white">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="password" #password="ngModel" [(ngModel)]="usuarioModel.password">
+            <div id="emailHelp" class="form-text" style="color: white"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABOUlEQVRIS72VYVUDMRCEv1EADgAHSCgKAAfgAAdcHdQBSKgDwAESWgegYHlzcH0hzXG5u5b9177LfJvZZCKOXDqyPjtARCyAJ+B8JnQD3Et6tU4K+ABOZop3yzeSLnJAHEi8lZHUNp/uoA+wBB4Ku/sEVsBjqbFawFJSExGXgD3tLLT4QtJ7RDQlSC3Ac7n6EeogbrgT938vwGm+i1qA1+UQ++vOe8XHzuAXxD+GxKcAdp4ngHQme3MeY1E6UNuSWtQLqQXk4h6oKx/83gWtBawl3RY8Twe/Bq7nnCILOKfyo2iILbqZc9Emp0fJokOG3VZSm8p5XD8DZ5Pb/l64Be724rokGhGlAHT4rSR5x4P154uWAd6cqo6JQdXkgxqA70IjydE8uoYAPqLu2s/gpPq/R39SexWLvgAIua8Z0t8rsQAAAABJRU5ErkJggg=="/> Este campo es necesario rellenarlo.</div>
+          </div>
+          <button type="button" class="btn btn-success" style="width: 80%; margin-left: 10%;"(click)="gettoregister()">Registrar</button>
+        </form>
+        <br>
+      </div>
+    </div>
+  </div>
+</body>
