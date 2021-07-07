@@ -1,0 +1,95 @@
+
+    <app-navbar></app-navbar>
+    <img src="{{ligas.image}}" class="img-fluid" style="width: 100%; right: 20%;">
+    <div style="margin-top: -10%; z-index: 10px; width: 80%; margin-left: 10%;">
+        <button type="button" class="btn btn-light" *ngIf="verificaciondelrol" data-bs-toggle="modal" data-bs-target="#AgregarUnEquipo"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAVElEQVRIS2NkoDFgpLH5DMRa8B+HQwjqJ6gAavCoBQSjejSIwEGEKxgIhh++JIycTEctQA8pcOgMryDCl1pGMxrBvDQaRAMfRARdgEsBsXUy2RYAAL74FBm4UItBAAAAAElFTkSuQmCC"/> Agregar un equipo</button>
+        <button type="button" class="btn btn-secondary" *ngIf="verificaciondelrol" style="margin-left: 5%;"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAWUlEQVRIS2NkoDFgpLH5DERZ8P/////YHMLIyEhQP0EFIINHLSAYz6NBBA4iXMFAMPxwKIAlYXgyHbUAPaSGYRDhSy2jGY1gXhoNooEPIoIuwKOAqDqZEgsAA7JQGZHFfiIAAAAASUVORK5CYII="/> Agregar un marcador</button>
+        <button type="button" class="btn btn-warning" style="width: 20%; margin-left:5%" (click)="VerTabla()"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAlklEQVRIS+2V2w2AIAxFDxM4go7iCDqhruIGjqAbuIGmJiRASDBY+II/INxHuWkNhZcpjE9VghFYgOGnqwOYgV1wXAdy0f8Et883QAR7BLcSuIV5xbsOqhGEH2+Js85jDrKAnPJ6ghpBGBTZJ0ukldYWU7/WLabJOH4p0QV0ShmNtmvp36vCTDiBKTZwlMT7MFVnchEHD/CiNhnmcI3DAAAAAElFTkSuQmCC"/> Tabla de la liga</button>
+        <button type="button" class="btn btn-success" style="width: 20%; margin-left:5%" (click)="VerGraficas()"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA8UlEQVRIS+2U3RHCIBCE9zqwA+1AS9AOLMHOtANLMB2oJdiBHeAsAwy5QABjHpwJb8mx+90PIJh5ycz+WADFDk9ukTHmBOCsSSJivScDaJKCNAGMMSubjcg71RMXvwPY+Hg1wIlvTnjQkCi+A/ACsHbJlFukxNQ9AASIij8B7AEcOZNiBQkxAVsPcRWxMmZuzX11nImIXLJDzmTG/V0E4ffAfHCa9I+UeZQZh+0hlPYyTx2A3jEdM/dit4cQrtCW3I0LgBpzBcke2xgWAzj9a03Zxfch2qBbREiXu1AtxuHCfSNq0fzkLRoDLoDiOP6/RR+742gZdiOx9wAAAABJRU5ErkJggg=="/> Graficas</button>
+    </div>
+    <h1 style="text-align: center; margin-top: 8%; font-size: 80px; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; text-transform:uppercase">{{ligas.name}}</h1>
+    <div class="" style="background-color: #191919">
+        <a href="" style="color: #191919">A</a>
+    </div>
+    <br>
+    <div class="container" *ngIf="vertabladato">
+        <div class="row">
+          <div class="col">
+            <table class="table table-dark table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Logo</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Partidos jugados</th>
+                    <th scope="col">putos</th>
+                    <th scope="col">Goles a favor</th>
+                    <th scope="col">Goles en contra</th>
+                    <th scope="col">Diferencia de goles</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let team of teams">
+                        <th><img src="{{team.logo}}" style="width: 60px;"></th>
+                        <th style="text-transform: uppercase;">{{team.name}}</th>
+                        <th>{{team.partidos}}</th>
+                        <th>{{team.puntos}}</th>
+                        <th>{{team.golesFavor}}</th>
+                        <th>{{team.golesContra}}</th>
+                        <th>{{team.golesDiferencia}}</th>
+                    </tr>
+                </tbody>
+              </table>
+          </div>
+        </div>
+    </div>
+    <div style="display: block;" *ngIf="VerGraficasdato">
+      <canvas baseChart
+        chartType="pie"
+        [data]="chartData"
+        [colors]="chartColors"
+        [labels]="chartLabels"
+        [options]="chartOptions"
+        [plugins]="chartPlugins"
+        [legend]="chartLegend">
+      </canvas>
+    </div>
+    
+<!-- Modal -->
+<div class="modal fade" id="AgregarUnEquipo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Agregar un equipo</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        <p>    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABBUlEQVRIS9WV2xEBQRREjwjIgBBkQAZkgAgQASHIgBBkQAhCIAMZUEftVE2N1+za/XB/dmsf3dN97/S0aLhaDePzdwQ9YARcgL3u1KGgU4BOgWFk+QP7F4IxMAG8vqpKBK4wgLryT5VN0I9A9Ti3nghc3RYIIMG+Wy5i8t0TwRnopk0CaiNIgWpX8P8EV6DdZA+col3U6Np78G4a18Cqwqhmb7QwvjPAezPHeIjtrBwVgrn5TMd0F2+A+QdlWQqCPUdgCZwiwKDM5w6IixmUTVMbf0hAzXkBJU+VqVL7JM8+D/xpUfwYR4m89sXJe1tlzwOTVSu8apsqvmf2t49+eV9WQWmuOxCWLBlsYTbNAAAAAElFTkSuQmCC"/>
+         Solo puedes agregar a 10 equipos para esta competición</p>
+         <hr>
+         <br>
+         <form>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Nombre del equipo</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" name="name" #name="ngModel" [(ngModel)]="TeamsModel.name">
+              <div id="emailHelp" class="form-text"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABBUlEQVRIS9WV2xEBQRREjwjIgBBkQAZkgAgQASHIgBBkQAhCIAMZUEftVE2N1+za/XB/dmsf3dN97/S0aLhaDePzdwQ9YARcgL3u1KGgU4BOgWFk+QP7F4IxMAG8vqpKBK4wgLryT5VN0I9A9Ti3nghc3RYIIMG+Wy5i8t0TwRnopk0CaiNIgWpX8P8EV6DdZA+col3U6Np78G4a18Cqwqhmb7QwvjPAezPHeIjtrBwVgrn5TMd0F2+A+QdlWQqCPUdgCZwiwKDM5w6IixmUTVMbf0hAzXkBJU+VqVL7JM8+D/xpUfwYR4m89sXJe1tlzwOTVSu8apsqvmf2t49+eV9WQWmuOxCWLBlsYTbNAAAAAElFTkSuQmCC"/>
+              No podras agregar equipos con el mismo nombre</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Pais del equipo</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" name="country" #country="ngModel" [(ngModel)]="TeamsModel.country">
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">logo del equipo</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" name="logo" #logo="ngModel" [(ngModel)]="TeamsModel.logo">
+                <div id="emailHelp" class="form-text"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABBUlEQVRIS9WV2xEBQRREjwjIgBBkQAZkgAgQASHIgBBkQAhCIAMZUEftVE2N1+za/XB/dmsf3dN97/S0aLhaDePzdwQ9YARcgL3u1KGgU4BOgWFk+QP7F4IxMAG8vqpKBK4wgLryT5VN0I9A9Ti3nghc3RYIIMG+Wy5i8t0TwRnopk0CaiNIgWpX8P8EV6DdZA+col3U6Np78G4a18Cqwqhmb7QwvjPAezPHeIjtrBwVgrn5TMd0F2+A+QdlWQqCPUdgCZwiwKDM5w6IixmUTVMbf0hAzXkBJU+VqVL7JM8+D/xpUfwYR4m89sXJe1tlzwOTVSu8apsqvmf2t49+eV9WQWmuOxCWLBlsYTbNAAAAAElFTkSuQmCC"/>
+                    Puedes agregar tu logo del equipo a traves de un url</div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" (click)="CrearUnNuevoTeams()">Aguardar equipo</button>
+        </div>
+      </div>
+    </div>
+  </div>
