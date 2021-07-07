@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { GLOBALSERVICIOS } from './global.services';
+import { ligas } from '../models/ligas.models'
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,17 @@ export class LigasServices {
   // funcion para obtener el todas las ligas
   getLiga(): Observable<any>{
     return this._http.get(this.url + "getLiga/"+this.getId(), {headers: this.headersToken})
+  }
+
+  // funcion para obtener una ligas
+  getlIGAiD(): Observable<any>{
+    return this._http.get(this.url + "getlIGAiD/" + this.getSoloUnaLiga(), {headers: this.headersToken})
+  }
+
+  // funcion para crear una nueva liga
+  PostCreateLiga(ligas: any): Observable<any>{
+    let params = JSON.stringify(ligas)
+    return this._http.post(this.url + "createLiga/"+this.getId(), params, {headers: this.headersToken})
   }
 
   //funcion para obtener el token desde el localStorage
@@ -45,4 +57,14 @@ export class LigasServices {
     return this.identidad;
   }
 
+  // funcion para obtener el id del usuario logeado
+  getSoloUnaLiga(){
+    var identidad2 = localStorage.getItem('UnaSolaLiga');
+    if(identidad2 != 'undefined'){
+      this.identidad = identidad2
+    }else{
+      this.identidad = null;
+    }
+    return this.identidad;
+  }
 }

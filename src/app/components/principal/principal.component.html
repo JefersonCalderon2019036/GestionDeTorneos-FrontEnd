@@ -5,20 +5,35 @@
         <img class="img-copa" src="https://s.france24.com/media/display/250efa62-baf5-11ea-bc56-005056a98db9/w:1280/p:1x1/e2304d50cc425601151af7c84f76435df3049a7b.jpg">
         <h3 class="texto-cards">Torneos</h3>
       </div>
-      <div class="torneos">
-        <img class="img-copa" src="https://static.vecteezy.com/system/resources/previews/002/297/431/non_2x/medical-history-patient-file-icon-vector.jpg">
-        <h3 class="texto-cards">Historial</h3>
-      </div>
-    </div>
-    <div class="primera-linea">
-      <div class="torneos">
+      <div class="torneos" data-bs-toggle="modal" data-bs-target="#exampleModal">
         <img class="img-copa" src="https://img.lovepik.com/element/40155/6214.png_860.png">
         <h3 class="texto-cards">Estadisticas
         </h3>
       </div>
+    </div>
+    <div class="primera-linea">
       <div class="torneos" routerLink="/users" routerLinkActive="active" *ngIf="verificaciondelrol">
         <img class="img-copa" src="https://media.istockphoto.com/vectors/users-icon-filled-users-icon-for-website-design-and-mobile-app-users-vector-id1168501373?b=1&k=6&m=1168501373&s=170667a&w=0&h=JgGwiExwsQBfresyf1nfTnmBDUN9oe8Vy8z8qStFEd0=">
         <h3 class="texto-cards">Usuarios</h3>
       </div>
     </div>
 </body>
+
+
+<!-- Estadisticas -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABBUlEQVRIS9WV2xEBQRREjwjIgBBkQAZkgAgQASHIgBBkQAhCIAMZUEftVE2N1+za/XB/dmsf3dN97/S0aLhaDePzdwQ9YARcgL3u1KGgU4BOgWFk+QP7F4IxMAG8vqpKBK4wgLryT5VN0I9A9Ti3nghc3RYIIMG+Wy5i8t0TwRnopk0CaiNIgWpX8P8EV6DdZA+col3U6Np78G4a18Cqwqhmb7QwvjPAezPHeIjtrBwVgrn5TMd0F2+A+QdlWQqCPUdgCZwiwKDM5w6IixmUTVMbf0hAzXkBJU+VqVL7JM8+D/xpUfwYR4m89sXJe1tlzwOTVSu8apsqvmf2t49+eV9WQWmuOxCWLBlsYTbNAAAAAElFTkSuQmCC"/> Advertencia</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Las estadisticas las encontraras en las ligas y en los equipos.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,28 +1,29 @@
 <body>
   <app-navbar></app-navbar>
   <br>
-  <h1 style="color: white; text-align: center;">Tus ligas de deportes</h1>
-  <hr style="color: white; width: 500%">
+  <h1 style="color: white; text-align: center; margin-top: 5%; margin-bottom: 5%; font-size: 100px; text-transform: capitalize;">Tus ligas deportivas</h1>
   <br>
+  <div class="d-grid gap-2 d-md-block">
+    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button" style="border-radius: 5px; margin-left: 8%;"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAWUlEQVRIS2NkoDFgpLH5DERZ8P/////YHMLIyEhQP0EFIINHLSAYz6NBBA4iXMFAMPxwKIAlYXgyHbUAPaSGYRDhSy2jGY1gXhoNooEPIoIuwKOAqDqZEgsAA7JQGZHFfiIAAAAASUVORK5CYII="/> Agregar un liga</button>
+  </div>
+  <br>
+</body>
+
+<!--- Todas las ligas -->
+<br>
   <div class="container">
     <div class="row">
-      <div class="col-4" *ngFor="let ligas of LigasModel">
-        <div class="card" style="width: 18rem;">
+      <div class="col-4" *ngFor="let ligas of ligas">
+        <div class="card" style="width: 18rem; border-color: black;" (click)="ObtenerUnaSolaLiga(ligas._id)">
           <img src="{{ligas.image}}" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">{{ligas.name}}</h5>
-            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-              <button type="button" class="btn btn-danger">Eliminar</button>
-              <button type="button" class="btn btn-warning">Editar</button>
-              <button type="button" class="btn btn-success">Ver más</button>
-            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <br>
-</body>
+<br>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -35,19 +36,24 @@
       <div class="modal-body">
         <form>
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            <label for="exampleInputEmail1" class="form-label" >Nombre de liga</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" name="name" #name="ngModel" [(ngModel)]="LigasModel.name">
+            <div id="emailHelp" class="form-text">No podras crear un liga que ya exista.</div>
           </div>
           <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
+            <label for="exampleInputEmail1" class="form-label">Descripción</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" name="descricpcion" #descricpcion="ngModel" [(ngModel)]="LigasModel.descricpcion">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Imagen</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" name="image" #image="ngModel" [(ngModel)]="LigasModel.image">
+            <div id="emailHelp" class="form-text">Puedes subir una imagen a traves de su url.</div>
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="AgregarUnaLiga()">Guardar</button>
       </div>
     </div>
   </div>

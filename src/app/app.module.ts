@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -14,6 +13,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { PrincipalComponent } from './components/principal/principal.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { EditarusuarioComponent } from './components/editarusuario/editarusuario.component';
+import { LigaComponent } from './components/liga/liga.component';
+import { ChartsModule } from '@rinminase/ng-charts';
 
 @NgModule({
   declarations: [
@@ -26,13 +27,15 @@ import { EditarusuarioComponent } from './components/editarusuario/editarusuario
     NavbarComponent,
     PrincipalComponent,
     PerfilComponent,
-    EditarusuarioComponent
+    EditarusuarioComponent,
+    LigaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
