@@ -2,20 +2,19 @@
     <app-navbar></app-navbar>
     <img src="{{ligas.image}}" class="img-fluid" style="width: 100%; right: 20%;">
     <div style="margin-top: -10%; z-index: 10px; width: 80%; margin-left: 10%;">
-        <button type="button" class="btn btn-light" *ngIf="verificaciondelrol" data-bs-toggle="modal" data-bs-target="#AgregarUnEquipo"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAVElEQVRIS2NkoDFgpLH5DMRa8B+HQwjqJ6gAavCoBQSjejSIwEGEKxgIhh++JIycTEctQA8pcOgMryDCl1pGMxrBvDQaRAMfRARdgEsBsXUy2RYAAL74FBm4UItBAAAAAElFTkSuQmCC"/> Agregar un equipo</button>
-        <button type="button" class="btn btn-secondary" *ngIf="verificaciondelrol" style="margin-left: 5%;"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAWUlEQVRIS2NkoDFgpLH5DERZ8P/////YHMLIyEhQP0EFIINHLSAYz6NBBA4iXMFAMPxwKIAlYXgyHbUAPaSGYRDhSy2jGY1gXhoNooEPIoIuwKOAqDqZEgsAA7JQGZHFfiIAAAAASUVORK5CYII="/> Agregar un marcador</button>
-        <button type="button" class="btn btn-warning" style="width: 20%; margin-left:5%" (click)="VerTabla()"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAlklEQVRIS+2V2w2AIAxFDxM4go7iCDqhruIGjqAbuIGmJiRASDBY+II/INxHuWkNhZcpjE9VghFYgOGnqwOYgV1wXAdy0f8Et883QAR7BLcSuIV5xbsOqhGEH2+Js85jDrKAnPJ6ghpBGBTZJ0ukldYWU7/WLabJOH4p0QV0ShmNtmvp36vCTDiBKTZwlMT7MFVnchEHD/CiNhnmcI3DAAAAAElFTkSuQmCC"/> Tabla de la liga</button>
-        <button type="button" class="btn btn-success" style="width: 20%; margin-left:5%" (click)="VerGraficas()"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA8UlEQVRIS+2U3RHCIBCE9zqwA+1AS9AOLMHOtANLMB2oJdiBHeAsAwy5QABjHpwJb8mx+90PIJh5ycz+WADFDk9ukTHmBOCsSSJivScDaJKCNAGMMSubjcg71RMXvwPY+Hg1wIlvTnjQkCi+A/ACsHbJlFukxNQ9AASIij8B7AEcOZNiBQkxAVsPcRWxMmZuzX11nImIXLJDzmTG/V0E4ffAfHCa9I+UeZQZh+0hlPYyTx2A3jEdM/dit4cQrtCW3I0LgBpzBcke2xgWAzj9a03Zxfch2qBbREiXu1AtxuHCfSNq0fzkLRoDLoDiOP6/RR+742gZdiOx9wAAAABJRU5ErkJggg=="/> Graficas</button>
+        <button type="button" class="btn btn-light" *ngIf="verificaciondelrol" data-bs-toggle="modal" data-bs-target="#AgregarUnEquipo"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAVElEQVRIS2NkoDFgpLH5DMRa8B+HQwjqJ6gAavCoBQSjejSIwEGEKxgIhh++JIycTEctQA8pcOgMryDCl1pGMxrBvDQaRAMfRARdgEsBsXUy2RYAAL74FBm4UItBAAAAAElFTkSuQmCC"/> Equipos</button>
+        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#AgregarUnMarcadorModal" *ngIf="verificaciondelrol" style="margin-left: 5%;"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAWUlEQVRIS2NkoDFgpLH5DERZ8P/////YHMLIyEhQP0EFIINHLSAYz6NBBA4iXMFAMPxwKIAlYXgyHbUAPaSGYRDhSy2jGY1gXhoNooEPIoIuwKOAqDqZEgsAA7JQGZHFfiIAAAAASUVORK5CYII="/> Marcadores</button>
+        <button type="button" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#EditarLiga" *ngIf="verificaciondelrol" style="margin-left: 5%;"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAAxUlEQVQ4T+2UYQ3CMBCFvykACTgABwwF4AALOAAJSGAOkIAEcIAEJJBHeklTjoVrsiwkXLI/7fr19fVdGwaoZgAmo0BnwN05TQssgc6b71N6AtbACrgW4AOwT3OXctNPUAG36eeHAw5Dc6CJKMEh6BRYJNIRmCeVGhLYbAhBc3vklS7Ds+gPjUdK3v62pztgAqhN9SnTauMbcLbo9LWpd3xlWOMCWwmoDZTjV0WhWpOD34C1UAOr4za5wm+UVr/fozzSVWqfS1c4FmhVqscAAAAASUVORK5CYII="/> Editar liga</button>
+        <button type="button" class="btn btn-danger"  (click)="DeleteLiga()" *ngIf="verificaciondelrol" style="margin-left: 5%;"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAA+klEQVQ4T+WV7xHBQBDF3+tAB6iADiQdUIHRARWgAkpQAhWQDqQCStDBM5u5cGKSS0x8YT/evf3d7Z/bI75gLGNK6gHoBs5MSd6KmjeopBWAKQCD1rETgAXJcy5+gUraOWAdWFEzIbm3xQfU3XD5Cc35WBr6lg4feq2Rw9CZa5KrDOqKcgl4xACGADYVuoRklEMjAMcqKElKCul+CBqTtB4sNUm2P/IEwfDnAJ4NTSaSOgAGHmTripcvBaEvN/y/QhULZEWxnNoDKLMDyXHt5g+9T7c/I7lrE2qzNYuiLWgKIMoHtj+lbBZazpqYjbu9hew7lX4nTchF7R29QIgWGE4BxwAAAABJRU5ErkJggg=="/> Eliminar liga</button>
+        <button type="button" class="btn btn-warning" style="width: 15%; margin-left:5%" (click)="VerTabla()"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAlklEQVRIS+2V2w2AIAxFDxM4go7iCDqhruIGjqAbuIGmJiRASDBY+II/INxHuWkNhZcpjE9VghFYgOGnqwOYgV1wXAdy0f8Et883QAR7BLcSuIV5xbsOqhGEH2+Js85jDrKAnPJ6ghpBGBTZJ0ukldYWU7/WLabJOH4p0QV0ShmNtmvp36vCTDiBKTZwlMT7MFVnchEHD/CiNhnmcI3DAAAAAElFTkSuQmCC"/> Tabla de la liga</button>
+        <button type="button" class="btn btn-success" style="width: 15%; margin-left:5%" (click)="VerGraficas()"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA8UlEQVRIS+2U3RHCIBCE9zqwA+1AS9AOLMHOtANLMB2oJdiBHeAsAwy5QABjHpwJb8mx+90PIJh5ycz+WADFDk9ukTHmBOCsSSJivScDaJKCNAGMMSubjcg71RMXvwPY+Hg1wIlvTnjQkCi+A/ACsHbJlFukxNQ9AASIij8B7AEcOZNiBQkxAVsPcRWxMmZuzX11nImIXLJDzmTG/V0E4ffAfHCa9I+UeZQZh+0hlPYyTx2A3jEdM/dit4cQrtCW3I0LgBpzBcke2xgWAzj9a03Zxfch2qBbREiXu1AtxuHCfSNq0fzkLRoDLoDiOP6/RR+742gZdiOx9wAAAABJRU5ErkJggg=="/> Graficas</button>
     </div>
-    <h1 style="text-align: center; margin-top: 8%; font-size: 80px; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; text-transform:uppercase">{{ligas.name}}</h1>
-    <div class="" style="background-color: #191919">
-        <a href="" style="color: #191919">A</a>
-    </div>
+    <h1 style="text-align: center; margin-top: 8%; font-size: 80px; text-transform:capitalize">{{ligas.name}}</h1>
     <br>
     <div class="container" *ngIf="vertabladato">
         <div class="row">
           <div class="col">
-            <table class="table table-dark table-hover">
+            <table class="table table-hover">
                 <thead>
                   <tr>
                     <th scope="col">Logo</th>
@@ -25,17 +24,19 @@
                     <th scope="col">Goles a favor</th>
                     <th scope="col">Goles en contra</th>
                     <th scope="col">Diferencia de goles</th>
+                    <th scope="col">Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let team of teams">
-                        <th><img src="{{team.logo}}" style="width: 60px;"></th>
-                        <th style="text-transform: uppercase;">{{team.name}}</th>
-                        <th>{{team.partidos}}</th>
-                        <th>{{team.puntos}}</th>
-                        <th>{{team.golesFavor}}</th>
-                        <th>{{team.golesContra}}</th>
-                        <th>{{team.golesDiferencia}}</th>
+                        <th scope="col" ><img src="{{team.logo}}" style="width: 60px;"></th>
+                        <th scope="col" style="text-transform: uppercase;">{{team.name}}</th>
+                        <th scope="col">{{team.partidos}}</th>
+                        <th scope="col">{{team.puntos}}</th>
+                        <th scope="col">{{team.golesFavor}}</th>
+                        <th scope="col">{{team.golesContra}}</th>
+                        <th scope="col">{{team.golesDiferencia}}</th>
+                        <th class="col"><button type="button" class="btn btn-success" (click)="undoloequipo(team._id)">Ver Más</button></th>
                     </tr>
                 </tbody>
               </table>
@@ -93,3 +94,65 @@
       </div>
     </div>
   </div>
+
+  <!-- Modal -->
+<div class="modal fade" id="AgregarUnMarcadorModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agregar un marcador</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Numero de jornada</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Numero de goles primer equipo</label>
+            <input type="text" class="form-control" id="exampleInputPassword1">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Guardar marcador</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="EditarLiga" tabindex="-1" aria-labelledby="EditarLiga" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar liga</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label" >Nombre de liga</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" name="name" #name="ngModel" [(ngModel)]="LigasModel.name">
+            <div id="emailHelp" class="form-text">No podras crear un liga que ya exista.</div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Descripción</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" name="descricpcion" #descricpcion="ngModel" [(ngModel)]="LigasModel.descricpcion">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Imagen</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" name="image" #image="ngModel" [(ngModel)]="LigasModel.image">
+            <div id="emailHelp" class="form-text">Puedes subir una imagen a traves de su url.</div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" (click)="UpdateLigas()">Actualizar datos</button>
+      </div>
+    </div>
+  </div>
+</div>

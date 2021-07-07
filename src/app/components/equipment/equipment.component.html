@@ -1,3 +1,40 @@
 <body>
   <app-navbar></app-navbar>
+  <br>
+  <h1 style="text-align: center; margin-top: 3%; text-transform: capitalize; color: #BDBDBD"><b>>>   {{teams.name}}  <<</b></h1>
+  <div style=" display: flex; margin-bottom: 3%;  ">
+    <form style="margin-left:5%; width:45%">
+      <br>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label" style="font-size: xx-large;">País</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" value="{{teams.country}}" disabled>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label" style="font-size: xx-large;">Puntos</label>
+        <input type="text" class="form-control" id="exampleInputPassword1"value="{{teams.puntos}}" disabled>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label" style="font-size: xx-large;">Partidos jugados</label>
+        <input type="text" class="form-control" id="exampleInputPassword1"value="{{teams.partidos}}" disabled>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label" style="font-size: xx-large;">Goles a favor</label>
+        <input type="text" class="form-control" id="exampleInputPassword1"value="{{teams.golesFavor}}" disabled>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label" style="font-size: xx-large;">Goles en contra</label>
+        <input type="text" class="form-control" id="exampleInputPassword1"value="{{teams.golesContra}}" disabled>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label" style="font-size: xx-large;">Diferencia de goles</label>
+        <input type="text" class="form-control" id="exampleInputPassword1"value="{{teams.golesDiferencia}}" disabled>
+      </div>
+      <br>
+    </form>
+
+    <img src="{{teams.logo}}" style="width: 40%; margin-top: 5%;; margin-left:5%">
+  </div>
+  <button type="button" class="btn btn-warning" style="width: 40%; margin-left:5%; margin-bottom: 5%;">Editar equipo</button>
+  <button type="button" class="btn btn-danger" style="width: 40%; margin-left:5%; margin-bottom: 5%;">Eliminar equipo</button>
+<br>
 </body>

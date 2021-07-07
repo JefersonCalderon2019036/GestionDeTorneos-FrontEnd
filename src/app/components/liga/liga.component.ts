@@ -101,4 +101,57 @@ export class LigaComponent implements OnInit {
     this.VerGraficasdato = false;
     this.vertabladato = true;
   }
+
+  DeleteLiga(){
+    if("ROLE_ADMIN" == this.rol){
+      this._LigasServices.DeleteLigaIdAdmin().subscribe(
+        response => {
+          console.log(response)
+          this._router.navigate(['/suspenders'])
+        }, error => {
+          console.log(<any>error)
+        }
+      )
+    }else {
+      this._LigasServices.DeleteLigaUserId().subscribe(
+        response => {
+          console.log(response)
+          this._router.navigate(['/suspenders'])
+        }, error => {
+          console.log(<any>error)
+        }
+      )
+    }
+  }
+
+  UpdateLigas(){
+    if("ROLE_ADMIN" == this.rol){
+      this._LigasServices.PutUpdateLidaAdmin(this.LigasModel).subscribe(
+        response => {
+          console.log(response)
+          this.ObtenerDatosDeLiga();
+          this.ObtenerDatosTable();
+          this.VerTabla();
+        }, error => {
+          console.log(<any>error)
+        }
+      )
+    }else {
+      this._LigasServices.PutUpadateLidaUser(this.LigasModel).subscribe(
+        response => {
+          console.log(response)
+          this.ObtenerDatosDeLiga();
+          this.ObtenerDatosTable();
+          this.VerTabla();
+        }, error => {
+          console.log(<any>error)
+        }
+      )
+    }
+  }
+
+  undoloequipo(id: any){
+    localStorage.setItem('UnSoloEquipo', id)
+    this._router.navigate(['/equipment'])
+  }
 }

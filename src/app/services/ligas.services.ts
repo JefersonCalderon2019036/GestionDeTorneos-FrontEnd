@@ -28,10 +28,28 @@ export class LigasServices {
     return this._http.get(this.url + "getlIGAiD/" + this.getSoloUnaLiga(), {headers: this.headersToken})
   }
 
+  DeleteLigaIdAdmin(): Observable<any>{
+    return this._http.delete(this.url + "deleteLigaAdmin/" + this.getSoloUnaLiga(), {headers: this.headersToken})
+  }
+
+  DeleteLigaUserId(): Observable<any>{
+    return this._http.delete(this.url + this.getId()+"/deleteLigaAdmin/" + this.getSoloUnaLiga(), {headers: this.headersToken})
+  }
   // funcion para crear una nueva liga
   PostCreateLiga(ligas: any): Observable<any>{
     let params = JSON.stringify(ligas)
     return this._http.post(this.url + "createLiga/"+this.getId(), params, {headers: this.headersToken})
+  }
+
+  //funcion para editar una liga
+  PutUpdateLidaAdmin(ligas: any): Observable<any>{
+    let params = JSON.stringify(ligas)
+    return this._http.put(this.url + "updateLigaAdmin/"+this.getSoloUnaLiga(), params, {headers: this.headersToken})
+  }
+
+  PutUpadateLidaUser(liga: any): Observable<any>{
+    let params = JSON.stringify(ligas)
+    return this._http.put(this.url + this.getId() +"/updateLiga/"+this.getSoloUnaLiga(), params, {headers: this.headersToken})
   }
 
   //funcion para obtener el token desde el localStorage

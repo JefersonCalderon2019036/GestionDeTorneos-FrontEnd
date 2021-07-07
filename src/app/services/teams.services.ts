@@ -23,10 +23,18 @@ import { GLOBALSERVICIOS } from './global.services';
         return this._http.get(this.url + "getTeams/"+this.getSoloUnaLiga(), {headers: this.headersToken})
     }
 
+    GetTeamsId(): Observable<any>{
+        return this._http.get(this.url + "getteamid/" +this.getSoloUnEquipo(), {headers: this.headersToken})
+    }
+    
     //funcion para agegar un nuevo equipos
     AgregarUnTeams(Team: teams): Observable<any>{
         let params = JSON.stringify(Team)
         return this._http.post(this.url +this.getSoloUnaLiga()+"/saveTeam/"+this.getId(), params, {headers: this.headersToken})
+    }
+
+    DeleteUnTemas(): Observable<any>{
+        return this._http.delete(this.url + this.getId() +"/deleteTeam/"+this.getSoloUnaLiga()+"/"+this.getSoloUnEquipo(), {headers: this.headersToken})
     }
 
    //funcion para obtener el token desde el localStorage
@@ -55,6 +63,16 @@ import { GLOBALSERVICIOS } from './global.services';
     // funcion para obtener el id del usuario logeado
     getSoloUnaLiga(){
         var identidad2 = localStorage.getItem('UnaSolaLiga');
+        if(identidad2 != 'undefined'){
+        this.identidad = identidad2
+        }else{
+        this.identidad = null;
+        }
+        return this.identidad;
+    }
+
+    getSoloUnEquipo(){
+        var identidad2 = localStorage.getItem('UnSoloEquipo');
         if(identidad2 != 'undefined'){
         this.identidad = identidad2
         }else{
