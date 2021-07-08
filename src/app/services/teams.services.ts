@@ -26,7 +26,7 @@ import { GLOBALSERVICIOS } from './global.services';
     GetTeamsId(): Observable<any>{
         return this._http.get(this.url + "getteamid/" +this.getSoloUnEquipo(), {headers: this.headersToken})
     }
-    
+
     //funcion para agegar un nuevo equipos
     AgregarUnTeams(Team: teams): Observable<any>{
         let params = JSON.stringify(Team)
@@ -34,7 +34,12 @@ import { GLOBALSERVICIOS } from './global.services';
     }
 
     DeleteUnTemas(): Observable<any>{
-        return this._http.delete(this.url + this.getId() +"/deleteTeam/"+this.getSoloUnaLiga()+"/"+this.getSoloUnEquipo(), {headers: this.headersToken})
+        return this._http.put(this.url + this.getId() +"/deleteTeam/"+this.getSoloUnaLiga()+"/"+this.getSoloUnEquipo(), {headers: this.Encabezado})
+    }
+
+    UpdateUnTeams(Team: teams): Observable<any>{
+      let params = JSON.stringify(Team)
+      return this._http.put(this.url + this.getId()+"/updateTeam/"+this.getSoloUnaLiga()+"/"+this.getSoloUnEquipo(), params, {headers: this.headersToken})
     }
 
    //funcion para obtener el token desde el localStorage

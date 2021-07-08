@@ -60,7 +60,7 @@ import { GLOBALSERVICIOS } from './global.services';
     //funcion para editar un usuario por el id
     UpdateUserId(usuario: Usuarios): Observable<any>{
       let params = JSON.stringify(usuario)
-      return this._http.put(this.url +"updateUserAdmin/"+this.getId()+"/"+this.getSoloUnUsuario(), params, {headers: this.headersToken})
+      return this._http.put(this.url +"updateUserAdmin/"+this.getSoloUnUsuario(), params, {headers: this.headersToken})
     }
 
     //funcion para edtiar mi propio usuarios

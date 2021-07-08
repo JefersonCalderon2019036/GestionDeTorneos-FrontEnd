@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { teams } from 'src/app/models/teams.models';
 import { TeamsServices } from 'src/app/services/teams.services';
 
 @Component({
@@ -10,11 +11,12 @@ import { TeamsServices } from 'src/app/services/teams.services';
 })
 export class EquipmentComponent implements OnInit {
   teams: any;
+  TeamsModel: any;
 
   constructor(
     private _TeamsServices: TeamsServices,
     private _router: Router
-  ) { }
+  ) { this.TeamsModel = new teams("","","","",0,0,0,0,0);}
 
   ngOnInit(): void {
     this.ObtenerUnTeam()
@@ -25,6 +27,28 @@ export class EquipmentComponent implements OnInit {
       response => {
         console.log(response)
         this.teams = response
+      }, error => {
+        console.log(<any>error)
+      }
+    )
+  }
+
+  DeleteUnTeam(){
+    this._TeamsServices.DeleteUnTemas().subscribe(
+      response => {
+        console.log(response)
+        this._router.navigate(['/ligas'])
+      }, error => {
+        console.log(<any>error)
+      }
+    )
+  }
+
+  ActualizarTeam(){
+    this._TeamsServices.UpdateUnTeams(this.TeamsModel).subscribe(
+      response => {
+        console.log(response)
+        this.ObtenerUnTeam();
       }, error => {
         console.log(<any>error)
       }

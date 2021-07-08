@@ -34,7 +34,41 @@
 
     <img src="{{teams.logo}}" style="width: 40%; margin-top: 5%;; margin-left:5%">
   </div>
-  <button type="button" class="btn btn-warning" style="width: 40%; margin-left:5%; margin-bottom: 5%;">Editar equipo</button>
-  <button type="button" class="btn btn-danger" style="width: 40%; margin-left:5%; margin-bottom: 5%;">Eliminar equipo</button>
+  <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#staticBackdrop"style="width: 40%; margin-left:5%; margin-bottom: 5%;">Editar equipo</button>
+  <button type="button" class="btn btn-danger" (click)="DeleteUnTeam()"style="width: 40%; margin-left:5%; margin-bottom: 5%;">Eliminar equipo</button>
 <br>
 </body>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Editar equipo</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label" style="color:black">Nombre</label>
+              <input type="text" class="form-control" id="exampleInputPassword1" name="name" #name="ngModel" [(ngModel)]="TeamsModel.name">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label" style="color:black">País</label>
+              <input type="text" class="form-control" id="exampleInputPassword1 "name="country" #country="ngModel" [(ngModel)]="TeamsModel.country">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label" style="color:black">País</label>
+              <input type="text" class="form-control" id="exampleInputPassword1 "name="logo" #logo="ngModel" [(ngModel)]="TeamsModel.logo">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cerrar</button>
+        <button type="button" class="btn btn-primary" (click)="ActualizarTeam()"data-bs-dismiss="modal">Actualizar datos</button>
+      </div>
+    </div>
+  </div>
+</div>

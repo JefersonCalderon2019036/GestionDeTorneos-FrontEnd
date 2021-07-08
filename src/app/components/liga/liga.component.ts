@@ -1,16 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ligas } from 'src/app/models/ligas.models';
 import { teams } from 'src/app/models/teams.models';
 import { LigasServices } from 'src/app/services/ligas.services';
 import { TeamsServices } from 'src/app/services/teams.services';
 import { UsersServices } from 'src/app/services/users.services';
+import { MarcadorServices } from 'src/app/services/marcador.services';
+import { marcador } from 'src/app/models/marcador.model';
+import { jsPDF } from "jspdf";
+import { ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-liga',
   templateUrl: './liga.component.html',
   styleUrls: ['./liga.component.scss'],
-  providers: [UsersServices, LigasServices, TeamsServices]
+  providers: [UsersServices, LigasServices, TeamsServices, MarcadorServices]
 })
 export class LigaComponent implements OnInit {
   rol: any;
@@ -32,16 +36,21 @@ export class LigaComponent implements OnInit {
   chartPlugins = [];
   VerGraficasdato: boolean | undefined;
   vertabladato: boolean | undefined;
+  MarcadorModel: marcador;
+  jornadasligas: any;
+  jornadas: any;
 
   constructor(
     public _usuarioService: UsersServices,
     public _LigasServices: LigasServices,
     public _TeamsServices: TeamsServices,
+    public _MarcadorServices: MarcadorServices,
     private _router: Router
   ) {
     this.rol = this._usuarioService.getRol();
     this.LigasModel = new ligas("","","",0, [{type: ""}]);
     this.TeamsModel = new teams("","","","",0,0,0,0,0);
+    this.MarcadorModel = new marcador(0,0,0,"","",[{type: ""}],[{type: ""}],[{type: ""}]);
     this.rol = this._usuarioService.getRol();
    }
 
@@ -50,6 +59,7 @@ export class LigaComponent implements OnInit {
     this.ObtenerDatosTable();
     this.verificacion();
     this.VerTabla();
+    this.ObtenerJornadasPorLIga();
   }
 
   ObtenerDatosDeLiga(){
@@ -71,13 +81,14 @@ export class LigaComponent implements OnInit {
         console.log(<any>error)
       }
     )
-  }  
+  }
 
   CrearUnNuevoTeams(){
     this._TeamsServices.AgregarUnTeams(this.TeamsModel).subscribe(
       response => {
         console.log(response)
         this.ObtenerDatosTable()
+        this.ObtenerJornadasPorLIga()
       }, error => {
         console.log(<any>error)
       }
@@ -153,5 +164,33 @@ export class LigaComponent implements OnInit {
   undoloequipo(id: any){
     localStorage.setItem('UnSoloEquipo', id)
     this._router.navigate(['/equipment'])
+  }
+
+  imprimir(){
+    const doc = new jsPDF();
+    doc.text('Proyecto angular a torneos', 10,10)
+    doc.save("proyecto-angular-torneos.pdf");
+  }
+
+  CrearUnaJornada(){
+    this._MarcadorServices.CrearJornada(this.MarcadorModel).subscribe(
+      response => {
+        console.log(response)
+        this.ObtenerDatosTable();
+      }, error => {
+        console.log(<any>error)
+      }
+    )
+  }
+
+  ObtenerJornadasPorLIga(){
+    this._MarcadorServices.ObtenerJornadas().subscribe(
+      response => {
+        console.log(response)
+        this.jornadas = response
+      }, error => {
+        console.log(<any>error)
+      }
+    )
   }
 }

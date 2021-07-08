@@ -33,7 +33,7 @@ export class LigasServices {
   }
 
   DeleteLigaUserId(): Observable<any>{
-    return this._http.delete(this.url + this.getId()+"/deleteLigaAdmin/" + this.getSoloUnaLiga(), {headers: this.headersToken})
+    return this._http.put(this.url + this.getId()+"/deleteLiga/" + this.getSoloUnaLiga(), {headers: this.Encabezado})
   }
   // funcion para crear una nueva liga
   PostCreateLiga(ligas: any): Observable<any>{

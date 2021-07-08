@@ -30,4 +30,15 @@ export class NavbarComponent implements OnInit {
       this.verificaciondelrol = false;
     }
   }
+
+  cerrarsecion(){
+    localStorage.setItem('name',"")
+    localStorage.setItem('Role',"")
+    localStorage.setItem('UnSoloEquipo',"")
+    localStorage.setItem('UnaSolaLiga',"")
+    localStorage.setItem('id',"")
+    localStorage.setItem('SoloUnUsuario',"")
+    localStorage.setItem('imperfil',"")
+    localStorage.setItem('token',"")
+  }
 }

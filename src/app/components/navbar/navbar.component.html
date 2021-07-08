@@ -13,6 +13,9 @@
           <a class="nav-link active" routerLink="/suspenders" routerLinkActive="active">Historial  |</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link active" (click)="cerrarsecion()"routerLink="/login" routerLinkActive="active">cerrar usuario  |</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link active" href="#" routerLink="/users" routerLinkActive="active" *ngIf="verificaciondelrol">Usuarios  |</a>
         </li>
       </ul>
